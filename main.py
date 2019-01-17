@@ -10,10 +10,3 @@ while i < j:
     i = i + 1
 
 #funcion
-
-
-
-
-
-
-def function_test
