@@ -9,7 +9,6 @@ def genera_mapa(path):
     matriz=[]
     for i in range(largo):
         matriz.append(['0']*ancho)
-
     for i in range(0,largo):
         for j in range(0,ancho+1):
             casilla=fd.read(1)
