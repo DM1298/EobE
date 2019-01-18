@@ -15,9 +15,6 @@ def genera_mapa(path):
             casilla=fd.read(1)
             if casilla!='\n':
                 matriz[i][j]=casilla
-    for i in range(0,largo):
-        for j in range(0,ancho):
-            print(matriz[i][j],end='')
-        print()
     fd.close()
+    return matriz
 genera_mapa("./mapa1.txt")
