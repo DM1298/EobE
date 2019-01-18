@@ -13,18 +13,17 @@ def getch():
 def menu_inventario(inventario, mapa):
     import Mapa
     ancho = Mapa.ancho_mapa(mapa)
-    largo = Mapa.largo_mapa(mapa)
-    largo -= (largo % 4 - 1)
+    largo = len(inventario)*2
     HUD=[]
     for i in range(largo):
         HUD.append([' ']*ancho)
     for i in range(largo):
         for j in range(ancho):
-            if i % 4 == 0 or j == 0 or j == ancho-1:
+            if i % 2 == 1 or j == 0 or j == ancho-1:
                 HUD[i][j] = '#'
     for i in range(len(inventario)):
         for j in range(len(inventario[i])):
-            HUD[i*4 + 2][j + 4] = inventario[i][j]
+            HUD[i*2][j + 4] = inventario[i][j]
     i = 0
     seleccionado = False
     while not seleccionado:
@@ -32,9 +31,11 @@ def menu_inventario(inventario, mapa):
         os.system('cls' if os.name == 'nt' else 'clear')
         for j in range(len(inventario)):
             if i == j:
-                HUD[i*2 + 2][2] = '>'
+                HUD[j*2][2] = '>'
             else:
-                HUD[i*2 + 2][2] = ' '
+                HUD[j*2][2] = ' '
+        import Mapa
+        Mapa.imprime_mapa(mapa)
         for j in range(largo):
             for k in range(ancho):
                 print(HUD[j][k], end="")
