@@ -40,10 +40,7 @@ def menuses(numero):
     return i
 
 def selecciona_lista(numero):
-    lista = []
-    switcher = {
-        0: #Menu principal
-            ["Juego Nuevo", "Cargar Juego","Salir","***Eat or be Eaten***"]
-    }
-    lista = switcher.get(numero)
-    return lista
+    if numero == 0: #Menu Principal
+        return ["Juego Nuevo", "Cargar Juego", "Salir", "***Eat or be Eaten***"]
+    if numero == 1: #Menu de 'Esc'
+        return ["Volver", "Guardar", "Salir"]
