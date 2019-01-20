@@ -74,5 +74,8 @@ def imprime_mapa(mapa):
     largo=largo_mapa(mapa)
     for i in range(0,largo):
         for j in range(0,ancho):
-            print(mapa[i][j].get('c'),end='')
+            print(mapa[i][j]['c'],end='')
         print()
+
+def comprueba_casilla(mapa,x,y):
+    return mapa[x][y].get('pisable')
