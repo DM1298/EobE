@@ -30,7 +30,5 @@ elif i == 1:
     Mapa.imprime_mapa(mapa)
     personaje=Personaje.crear_personaje()
     mapa=Personaje.inserta_personaje(personaje,mapa)
-    inventario_de_pega = ["Llibertat","Presos","Politics"]
-    Menuses.menu_inventario(inventario_de_pega, mapa)
 else:
     print('Salir')

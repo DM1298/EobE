@@ -15,16 +15,16 @@ def jugar(mapa,personaje):
         x_bak=x
         y_bak=y
         if move == 'A':
-            x+=1
-        elif move == 'B':
             x-=1
+        elif move == 'B':
+            x+=1
         elif move == 'C':
             y+=1
         elif move == 'D':
             y-=1
         if Mapa.comprueba_casilla(mapa,x,y):
             Personaje.modifica_posicion(personaje,x,y)
-            mapa=Personaje.inserta_personaje(personaje,mapa)
-            aire=Mapa.genera_casilla(' ',0,0)
-            mapa[x_bak][y_bak]=0
-            mapa[x_bak][y_bak]=aire
+            mapa, error=Personaje.inserta_personaje(personaje,mapa) #en vez de retornar error, yo haria que se ocupara de eso esta funcion
+            if not error:
+                aire=Mapa.genera_casilla(' ',0,0)
+                mapa[x_bak][y_bak]=aire
