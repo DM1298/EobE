@@ -1,14 +1,4 @@
-def getch():
-  import sys, tty, termios
-  old_settings = termios.tcgetattr(0)
-  new_settings = old_settings[:]
-  new_settings[3] &= ~termios.ICANON
-  try:
-    termios.tcsetattr(0, termios.TCSANOW, new_settings)
-    ch = sys.stdin.read(1)
-  finally:
-    termios.tcsetattr(0, termios.TCSANOW, old_settings)
-  return ch
+import getch
 
 def menu_inventario(inventario, mapa):
     import Mapa
@@ -41,7 +31,7 @@ def menu_inventario(inventario, mapa):
                 print(HUD[j][k], end="")
             print()
         print('Selecciona un item de tu inventario con las flechas y el intro')
-        x = getch()
+        x = getch.getch()
         if x == 'A' and i > 0:
             i = i - 1
         elif x == 'A':
@@ -70,7 +60,7 @@ def menuses(numero):
                 print('  ', end="")
             print(lista[j])
         print('\nUsa las flechas para elejir, y el intro para seleccionar', end='')
-        x = getch()
+        x = getch.getch()
         if x == 'A' and i > 0:
             i = i - 1
         elif x == 'A':
@@ -87,4 +77,4 @@ def selecciona_lista(numero):
     if numero == 0: #Menu Principal
         return ["Juego Nuevo", "Cargar Juego", "Salir", "***Eat or be Eaten***"]
     if numero == 1: #Menu de 'Esc'
-        return ["Volver", "Guardar", "Salir"]
+        return ["Volver", "Guardar", "Salir","***PAUSA***"]

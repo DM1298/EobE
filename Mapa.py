@@ -72,10 +72,16 @@ def largo_mapa(mapa):
 def imprime_mapa(mapa):
     ancho=ancho_mapa(mapa)
     largo=largo_mapa(mapa)
+    vSyncMapa=[]
     for i in range(0,largo):
+        linea = ""
         for j in range(0,ancho):
-            print(mapa[i][j]['c'],end='')
-        print()
+            linea = linea + mapa[i][j].get('c')
+        vSyncMapa.append(linea)
+    import os
+    os.system('clear')
+    for i in range(0,largo):
+        print(vSyncMapa[i])
 
 def comprueba_casilla(mapa,x,y):
     return mapa[x][y].get('pisable')
